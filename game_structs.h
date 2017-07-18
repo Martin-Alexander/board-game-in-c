@@ -1,18 +1,15 @@
-
+// Pieces
 typedef struct Piece {
   int player;
   int active;
   struct Piece *next;
 } piece;
 
+// Squares 
 typedef struct Square {
-  int column;
+  int col;
   int row;
   int headquarters;
   int player;
-  piece **piece ;
+  piece **pieces ;
 } square;
-
-typedef struct GameData {
-  square *(*board)[NUM_ROWS][NUM_COLUMNS];
-} gameData;

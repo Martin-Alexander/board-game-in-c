@@ -7,18 +7,23 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "./game_structs.h"
 #include "./game_data_initialization.h"
+#include "./gui_output.h"
+#include "./gui_input.h"
 
 int main() {
 
-  square *board[NUM_ROWS][NUM_COLUMNS];
-  player *playerOne, *playerTwo;
-  gameData *mainGameData;
-  (*mainGameData).board = &board;
-  (*mainGameData).playerOne = playerOne;
-  (*mainGameData).playerTwo = playerTwo;
+  // Array of pointers to squares with size rows x cols
+  square *board[NUM_COLUMNS * NUM_ROWS];
+
+  // Turn player initialized to player one
+  int turnPlayer = 1;
+ 
+  // Fill board with empty squares
+  initializeBoardWithSquares(board);
 
   return 0;
 }
