@@ -9,3 +9,11 @@ void printBoard(square *boardp[]) {
   }
 }
 
+// Prints out the number of active and inactive pieces for a given square
+void printPiecesInSquare(square *square) {
+  printf(
+    "Active: %d / Inactive: %d\n", 
+    numberOfActivePiecesInSquare(square),
+    numberOfInactivePiecesInSquare(square)
+  );
+}

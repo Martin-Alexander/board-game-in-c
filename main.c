@@ -11,6 +11,10 @@
 
 #include "./game_structs.h"
 #include "./game_data_initialization.h"
+
+#include "./piece_helpers.h"
+#include "./piece_counting.h"
+#include "./piece_manipulation.h"
 #include "./gui_output.h"
 #include "./gui_input.h"
 
@@ -24,6 +28,24 @@ int main() {
  
   // Fill board with empty squares
   initializeBoardWithSquares(board);
+
+  printPiecesInSquare(board[0]);
+
+  printf("**Add 3 active pieces and 2 inactive pieces\n");
+
+  addPieceToSquare(board[0], 1, 1);
+  addPieceToSquare(board[0], 1, 1);
+  addPieceToSquare(board[0], 1, 1);
+  addPieceToSquare(board[0], 1, 0);
+  addPieceToSquare(board[0], 1, 0);
+
+  printPiecesInSquare(board[0]);
+
+  printf("**Remove one active piece\n");
+
+  removeActivePiecesFromSquare(board[0], 1);
+
+  printPiecesInSquare(board[0]);
 
   return 0;
 }

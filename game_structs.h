@@ -11,5 +11,5 @@ typedef struct Square {
   int row;
   int headquarters;
   int player;
-  piece **pieces ;
+  piece *head ;
 } square;
