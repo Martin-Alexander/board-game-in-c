@@ -14,6 +14,7 @@ void addPieceToSquare(square *square, int player, int active) {
   }
 }
 
+// Removes a given number of active pieces from a given square
 void removeActivePiecesFromSquare(square *square, int numberOfPiecesToBeRemoved) {
   if (numberOfPiecesToBeRemoved > 0) {
     if ((square->head)->active == 1) {
@@ -36,6 +37,7 @@ void removeActivePiecesFromSquare(square *square, int numberOfPiecesToBeRemoved)
   }
 }
 
+// Removes a given number of inactive pieces from a given square
 void removeInactivePiecesFromSquare(square *square, int numberOfPiecesToBeRemoved) {
   if (numberOfPiecesToBeRemoved > 0) {
     if ((square->head)->active == 0) {
@@ -56,4 +58,9 @@ void removeInactivePiecesFromSquare(square *square, int numberOfPiecesToBeRemove
     }
     removeInactivePiecesFromSquare(square, numberOfPiecesToBeRemoved - 1);
   }
+}
+
+// Remove all pieces from a given square
+void removeAllPiecesFromSquare(square *square) {
+  square->head = NULL;
 }
