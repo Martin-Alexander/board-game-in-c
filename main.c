@@ -18,6 +18,9 @@
 #include "./gui_output.h"
 #include "./gui_input.h"
 
+// Include tests
+#include "./piece_add_remove_test.h"
+
 int main() {
 
   // Array of pointers to squares with size rows x cols
@@ -29,23 +32,8 @@ int main() {
   // Fill board with empty squares
   initializeBoardWithSquares(board);
 
-  printPiecesInSquare(board[0]);
-
-  printf("**Add 3 active pieces and 2 inactive pieces\n");
-
-  addPieceToSquare(board[0], 1, 1);
-  addPieceToSquare(board[0], 1, 1);
-  addPieceToSquare(board[0], 1, 1);
-  addPieceToSquare(board[0], 1, 0);
-  addPieceToSquare(board[0], 1, 0);
-
-  printPiecesInSquare(board[0]);
-
-  printf("**Remove one active piece\n");
-
-  removeActivePiecesFromSquare(board[0], 1);
-
-  printPiecesInSquare(board[0]);
+  // Test scipt
+  runPieceAddRemoveTest(board);
 
   return 0;
 }
