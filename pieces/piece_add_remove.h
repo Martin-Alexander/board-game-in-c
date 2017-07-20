@@ -1,16 +1,36 @@
-// Adds a piece to a square
-void addPieceToSquare(square *square, int player, int active) {
+// Adds a given number of active pieces to a square
+void addActivePiecesToSquare(square *square, int player, int numberOfPiecesToBeAdded) {
+  if (numberOfPiecesToBeAdded > 0) {
+    piece *newPiece = malloc(sizeof(piece));
+    newPiece->active = 1;
+    newPiece->player = player;
+    newPiece->next = NULL;
 
-  piece *newPiece = malloc(sizeof(piece));
-  newPiece->active = active;
-  newPiece->player = player;
-  newPiece->next = NULL;
+    if (square->head == NULL) {
+      square->head = newPiece;
+    } else {
+      piece *lastNode = findLastPiece(square);
+      lastNode->next = newPiece;
+    }
+    addActivePiecesToSquare(square, player, numberOfPiecesToBeAdded - 1);
+  }
+}
 
-  if (square->head == NULL) {
-    square->head = newPiece;
-  } else {
-    piece *lastNode = findLastPiece(square);
-    lastNode->next = newPiece;
+// Adds a given number of inactive pieces to a square
+void addInactivePiecesToSquare(square *square, int player, int numberOfPiecesToBeAdded) {
+  if (numberOfPiecesToBeAdded > 0) {
+    piece *newPiece = malloc(sizeof(piece));
+    newPiece->active = 0;
+    newPiece->player = player;
+    newPiece->next = NULL;
+
+    if (square->head == NULL) {
+      square->head = newPiece;
+    } else {
+      piece *lastNode = findLastPiece(square);
+      lastNode->next = newPiece;
+    }
+    addInactivePiecesToSquare(square, player, numberOfPiecesToBeAdded - 1);
   }
 }
 
