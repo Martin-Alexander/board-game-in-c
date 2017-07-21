@@ -11,8 +11,7 @@ void initializeBoardWithSquares(square *board[]) {
 
       newSquare->row = row;
       newSquare->col = col;
-      newSquare->player = 0;
-      newSquare->headquarters = 0;
+      newSquare->HQ = 0;
       newSquare->farm = 0;
       newSquare->head = NULL;
 
@@ -20,4 +19,17 @@ void initializeBoardWithSquares(square *board[]) {
       squareCounter++;
     }
   }
+}
+
+// Initializes the board with the headquarters of player one and player two
+void initializeHQs(square *board[]) {
+
+  square *playerOneHQ = board[(NUM_COLUMNS * PLAYER_ONE_HQ_ROW) + PLAYER_ONE_HQ_COL];
+  square *playerTwoHQ = board[(NUM_COLUMNS * PLAYER_TWO_HQ_ROW) + PLAYER_TWO_HQ_COL];
+
+  playerOneHQ->HQ = 1;
+  playerOneHQ->player = 1;
+
+  playerTwoHQ->HQ = 1;
+  playerTwoHQ->player = 2;
 }

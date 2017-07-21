@@ -33,7 +33,7 @@ char * lowerHalfOfSquare(square *square) {
     lowerHalf[2] = 'p'; lowerHalf[3] = '2';
   }
   lowerHalf[4] = ' '; lowerHalf[5] = '/'; lowerHalf[6] = ' ';
-  if (square->headquarters) {
+  if (square->HQ) {
     lowerHalf[7] = 'H'; lowerHalf[8] = 'Q';
   } else if (square->farm) {
     lowerHalf[7] = 'F'; lowerHalf[8] = ' ';

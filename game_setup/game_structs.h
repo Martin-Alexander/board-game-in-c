@@ -8,7 +8,7 @@ typedef struct Piece {
 typedef struct Square {
   int col;
   int row;
-  int headquarters;
+  int HQ;
   int farm;
   int player;
   piece *head ;

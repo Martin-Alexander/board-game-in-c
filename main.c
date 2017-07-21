@@ -6,7 +6,7 @@
 #define NUM_ROWS 7
 #define PLAYER_ONE_HQ_ROW 1
 #define PLAYER_ONE_HQ_COL 3
-#define PLAYER_TWO_HQ_ROW 6
+#define PLAYER_TWO_HQ_ROW 5
 #define PLAYER_TWO_HQ_COL 3
 
 #include "./game_setup/index.h"
@@ -17,8 +17,10 @@
 int main() {
 
   initializeBoardWithSquares(board);
+  initializeHQs(board);
 
-  runAllTests();
+  // runAllTests();
+  runPrintBoardTest(board);
 
   return 0;
 }
