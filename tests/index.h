@@ -2,6 +2,7 @@
 #include "./activate_inactivate_test.h"
 #include "./movement_test.h"
 #include "./print_board_test.h"
+#include "./fight_test.h"
 
 void runAllTests() {
 
