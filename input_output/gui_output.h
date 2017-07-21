@@ -1,17 +1,6 @@
-// Prints a representation of the board to the terminal 
-void printBoard(square *board[]) {
-  int row, col;
-  for (row = 0; row < NUM_ROWS; row++){
-    printf("\n");
-    for (col = 0; col < NUM_COLUMNS; col++) {
-      // TODO: printSquare function
-    }
-  }
-}
-
 // Returns a string representing the upper half of a square (i.e., the number of
 // active and inactive pieces)
-char * printUpperHalfOfSquare(square *square) {
+char * upperHalfOfSquare(square *square) {
   char *upperHalf = malloc(sizeof(char) * 11);
   upperHalf[0] = '|'; upperHalf[1] = ' ';
   if (numberOfActivePiecesInSquare(square) > 9) {
@@ -31,6 +20,48 @@ char * printUpperHalfOfSquare(square *square) {
   }
   upperHalf[9] = ' '; upperHalf[10] = '\0';
   return upperHalf;
+}
+
+char * lowerHalfOfSquare(square *square) {
+  char *lowerHalf = malloc(sizeof(char) * 11);
+  lowerHalf[0] = '|'; lowerHalf[1] = ' ';
+  if (square->player == 0) {
+    lowerHalf[2] = '-'; lowerHalf[3] = '-';
+  } else if (square->player == 1) {
+    lowerHalf[2] = 'p'; lowerHalf[3] = '1';
+  } else if (square->player == 2) {
+    lowerHalf[2] = 'p'; lowerHalf[3] = '2';
+  }
+  lowerHalf[4] = ' '; lowerHalf[5] = '/'; lowerHalf[6] = ' ';
+  if (square->headquarters) {
+    lowerHalf[7] = 'H'; lowerHalf[8] = 'Q';
+  } else if (square->farm) {
+    lowerHalf[7] = 'F'; lowerHalf[8] = ' ';
+  } else {
+    lowerHalf[7] = '-'; lowerHalf[8] = '-';
+  }
+  lowerHalf[9] = ' '; lowerHalf[10] = '\0';
+  return lowerHalf;
+}
+
+// Prints a representation of the board to the terminal 
+void printBoard(square *board[]) {
+  int upperIndex = 0;
+  int lowerIndex = 0;
+  int row, col;
+
+  for (row = 0; row < NUM_ROWS; row++) {
+    for (col = 0; col < NUM_COLUMNS; col++) {
+      printf("%s", upperHalfOfSquare(board[upperIndex]));
+      upperIndex++;
+    }
+    printf("|\n");
+    for (col = 0; col < NUM_COLUMNS; col++) {
+      printf("%s", lowerHalfOfSquare(board[lowerIndex]));
+      lowerIndex++;
+    }
+    printf("|\n");
+  }
 }
 
 // Prints out the number of active and inactive pieces for a given square
