@@ -24,8 +24,8 @@ void initializeBoardWithSquares(square *board[]) {
 // Initializes the board with the headquarters of player one and player two
 void initializeHQs(square *board[]) {
 
-  square *playerOneHQ = board[(NUM_COLUMNS * PLAYER_ONE_HQ_ROW) + PLAYER_ONE_HQ_COL];
-  square *playerTwoHQ = board[(NUM_COLUMNS * PLAYER_TWO_HQ_ROW) + PLAYER_TWO_HQ_COL];
+  square *playerOneHQ = findSquare(PLAYER_ONE_HQ_ROW, PLAYER_ONE_HQ_COL);
+  square *playerTwoHQ = findSquare(PLAYER_TWO_HQ_ROW, PLAYER_TWO_HQ_COL);
 
   playerOneHQ->HQ = 1;
   playerOneHQ->player = 1;

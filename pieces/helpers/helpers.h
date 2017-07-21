@@ -14,3 +14,7 @@ piece * findLastPiece(square *square) {
     }
   }
 }
+
+square * findSquare(int row, int col) {
+  return board[(NUM_COLUMNS * row) + col];
+}
