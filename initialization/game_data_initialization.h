@@ -1,5 +1,5 @@
 // Initializes an array with pointers to empty squares
-void initializeBoardWithSquares(square *board[]) {
+void initializeBoardWithSquares() {
 
   int row, col;
   int squareCounter = 0;
@@ -22,7 +22,7 @@ void initializeBoardWithSquares(square *board[]) {
 }
 
 // Initializes the board with the headquarters of player one and player two
-void initializeHQs(square *board[]) {
+void initializeHQs() {
 
   square *playerOneHQ = findSquare(PLAYER_ONE_HQ_ROW, PLAYER_ONE_HQ_COL);
   square *playerTwoHQ = findSquare(PLAYER_TWO_HQ_ROW, PLAYER_TWO_HQ_COL);

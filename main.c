@@ -18,12 +18,12 @@
 
 int main() {
 
-  initializeBoardWithSquares(board);
-  initializeHQs(board);
+  initializeBoardWithSquares();
+  initializeHQs();
 
   // runAllTests();
   movePieces(board[38], board[31], 10);
-  runPrintBoardTest(board);
+  runPrintBoardTest();
 
   return 0;
 }

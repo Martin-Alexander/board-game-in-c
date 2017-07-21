@@ -1,4 +1,4 @@
-void runMovementTest(square *board[]) {
+void runMovementTest() {
 
   printf("\n\n==== Movement Tests ====\n\n");
   printPiecesInSquare(board[3]);

@@ -45,7 +45,7 @@ char * lowerHalfOfSquare(square *square) {
 }
 
 // Prints a representation of the board to the terminal 
-void printBoard(square *board[]) {
+void printBoard() {
   int upperIndex = 0;
   int lowerIndex = 0;
   int row, col;

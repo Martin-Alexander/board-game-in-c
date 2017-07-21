@@ -1,4 +1,4 @@
-void runActivateInactivateTest(square *board[]) {
+void runActivateInactivateTest() {
 
   printf("\n\n==== Activate/Inactive Tests ====\n\n");
   printPiecesInSquare(board[2]);

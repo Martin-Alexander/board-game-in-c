@@ -5,8 +5,8 @@
 
 void runAllTests() {
 
-  runPieceAddRemoveTest(board);
-  runActivateInactivateTest(board);
-  runMovementTest(board);
-  runPrintBoardTest(board);
+  runPieceAddRemoveTest();
+  runActivateInactivateTest();
+  runMovementTest();
+  runPrintBoardTest();
 }

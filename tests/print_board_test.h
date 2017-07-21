@@ -1,3 +1,3 @@
-void runPrintBoardTest(square *board[]) {
+void runPrintBoardTest() {
   printBoard(board);
 }

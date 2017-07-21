@@ -1,4 +1,4 @@
-void runPieceAddRemoveTest(square *board[]) {
+void runPieceAddRemoveTest() {
   
   printf("\n\n==== Add/Remove Tests ====\n\n");
   printPiecesInSquare(board[0]);
