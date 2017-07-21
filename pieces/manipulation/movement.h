@@ -1,13 +1,5 @@
-// Move active pieces from one square to another provided that the following
-// validations are met:
-// - Squares are ajacent
-// - Destination square is empty
-// - Departure square is not empty
-// - The number of pieces to be moved does not exceed the number of active 
-//   pieces in the square
-// - It is the correct player's turn
-void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMoved) {
-
+// Returns whether or not movement validations have been met
+int movementValidationsAreMet(square *fromSquare, square *toSquare, int numberOfPiecesToBeMoved) {
   if (
     fromSquare->player == turnPlayer &&
     squaresAreAjacent(fromSquare, toSquare) &&
@@ -15,11 +7,23 @@ void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMove
     squareIsEmpty(toSquare) &&
     numberOfPiecesToBeMoved <= numberOfActivePiecesInSquare(fromSquare)
   ) {
-    // Validations have been met
+    return 1;
+  } else {
+    return 0;
+  }
+}
 
+// Move pieces from one square to another provided that validations are met
+void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMoved) {
+
+  if (movementValidationsAreMet(fromSquare, toSquare, numberOfPiecesToBeMoved)) {
+    
     removeActivePiecesFromSquare(fromSquare, numberOfPiecesToBeMoved);
     addInactivePiecesToSquare(toSquare, numberOfPiecesToBeMoved);
+    
     toSquare->player = fromSquare->player;
-    if (squareIsEmpty(fromSquare) && !fromSquare->HQ) { fromSquare->player = 0; }
+    if (squareIsEmpty(fromSquare) && !fromSquare->HQ) { 
+      fromSquare->player = 0; 
+    }
   }
 }

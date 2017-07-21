@@ -1,17 +1,41 @@
-// Engages two squares in combat provided that the following validatiosn are 
-// met:
-// - Squares are adjacent
-// - Squares are not empty
-// - Squares contain pieces of opposing players
-void fight(square *fromSquare, square *toSquare) {
-
+// Determines whether or not fighting validations have been met
+int fightingValidationsAreMet(square *attackSquare, square *defenseSquare) {
   if (
-    squaresAreAjacent(fromSquare, toSquare) &&
-    !squareIsEmpty(fromSquare) &&
-    !squareIsEmpty(toSquare) &&
-    squaresContainOpposingPieces(fromSquare, toSquare)
+    attackSquare->player == turnPlayer &&
+    squaresAreAjacent(attackSquare, defenseSquare) &&
+    !squareIsEmpty(attackSquare) &&
+    !squareIsEmpty(defenseSquare) &&
+    squaresContainOpposingPieces(attackSquare, defenseSquare) &&
+    numberOfActivePiecesInSquare(attackSquare) > 0
   ) {
-    // FIGHT
+    return 1;
+  } else {
+    return 0;
+  }
+}
 
+// Determines the number of loses a side will sustain based on their stength 
+// relative to their opponent's strength
+int fightLosses(int myStrength, int opponentsStrength) {
+  if (myStrength <= opponentsStrength) {
+    return myStrength;
+  } else {
+    return opponentsStrength / (myStrength / opponentsStrength);
+  }
+}
+
+// Engages two squares in combat provided that the validations are met
+void fight(square *attackSquare, square *defenseSquare) {
+
+  if (fightingValidationsAreMet(attackSquare, defenseSquare)) {
+
+    int attackStrength = numberOfActivePiecesInSquare(attackSquare);
+    int defenseStrength = totalNumberOfPiecesInSquare(defenseSquare);
+
+    inactivatePiecesInSquare(attackSquare, numberOfActivePiecesInSquare(attackSquare));
+    inactivatePiecesInSquare(defenseSquare, numberOfActivePiecesInSquare(defenseSquare));
+
+    removeInactivePiecesFromSquare(attackSquare, fightLosses(attackStrength, defenseStrength));
+    removeInactivePiecesFromSquare(defenseSquare, fightLosses(defenseStrength, attackStrength));
   }
 }
