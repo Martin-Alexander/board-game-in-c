@@ -22,8 +22,20 @@ void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMove
     addInactivePiecesToSquare(toSquare, numberOfPiecesToBeMoved);
     
     toSquare->player = fromSquare->player;
-    if (squareIsEmpty(fromSquare) && !fromSquare->HQ) { 
+    
+    // Setting 'player' of 'fromSquare' to 0 if all pieces left
+    if (
+      squareIsEmpty(fromSquare) && 
+      !fromSquare->HQ &&
+      !fromSquare->farm
+    ) { 
       fromSquare->player = 0; 
+    }
+
+    // Destroying a farm or HQ if an opposing player moved onto it
+    if (toSquare->player != fromSquare->player) {
+      toSquare->HQ = 0;
+      toSquare->farm = 0;
     }
   }
 }
