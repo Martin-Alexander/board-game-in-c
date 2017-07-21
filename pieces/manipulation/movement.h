@@ -18,4 +18,6 @@ void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMove
     removeActivePiecesFromSquare(fromSquare, numberOfPiecesToBeMoved);
     addInactivePiecesToSquare(toSquare, numberOfPiecesToBeMoved);
   }
+  toSquare->player = fromSquare->player;
+  if (squareIsEmpty(fromSquare) && !fromSquare->HQ) { fromSquare->player = 0; }
 }

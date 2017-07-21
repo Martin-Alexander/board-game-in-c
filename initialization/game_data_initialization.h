@@ -29,7 +29,9 @@ void initializeHQs(square *board[]) {
 
   playerOneHQ->HQ = 1;
   playerOneHQ->player = 1;
+  addActivePiecesToSquare(playerOneHQ, 10);
 
   playerTwoHQ->HQ = 1;
   playerTwoHQ->player = 2;
+  addActivePiecesToSquare(playerTwoHQ, 10);
 }
