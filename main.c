@@ -13,6 +13,7 @@
 #include "./pieces/index.h"
 #include "./input_output/index.h"
 #include "./tests/index.h"
+#include "./economy/index.h"
 #include "./initialization/game_data_initialization.h"
 
 
@@ -21,9 +22,7 @@ int main() {
   initializeBoardWithSquares();
   initializeHQs();
 
-  // runAllTests();
-  movePieces(board[38], board[31], 10);
-  runPrintBoardTest();
-
+  runFightTest();
+  printBoard();
   return 0;
 }
