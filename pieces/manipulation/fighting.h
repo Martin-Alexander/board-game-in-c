@@ -37,5 +37,8 @@ void fight(square *attackSquare, square *defenseSquare) {
 
     removeInactivePiecesFromSquare(attackSquare, fightLosses(attackStrength, defenseStrength));
     removeInactivePiecesFromSquare(defenseSquare, fightLosses(defenseStrength, attackStrength));
+
+    if (squareIsEmpty(attackSquare)) { attackSquare->player = 0; }
+    if (squareIsEmpty(defenseSquare)) { defenseSquare->player = 0; }
   }
 }
