@@ -5,9 +5,11 @@
 // - Departure square is not empty
 // - The number of pieces to be moved does not exceed the number of active 
 //   pieces in the square
+// - It is the correct player's turn
 void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMoved) {
 
   if (
+    fromSquare->player == turnPlayer &&
     squaresAreAjacent(fromSquare, toSquare) &&
     !squareIsEmpty(fromSquare) &&
     squareIsEmpty(toSquare) &&
@@ -17,7 +19,7 @@ void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMove
 
     removeActivePiecesFromSquare(fromSquare, numberOfPiecesToBeMoved);
     addInactivePiecesToSquare(toSquare, numberOfPiecesToBeMoved);
+    toSquare->player = fromSquare->player;
+    if (squareIsEmpty(fromSquare) && !fromSquare->HQ) { fromSquare->player = 0; }
   }
-  toSquare->player = fromSquare->player;
-  if (squareIsEmpty(fromSquare) && !fromSquare->HQ) { fromSquare->player = 0; }
 }
