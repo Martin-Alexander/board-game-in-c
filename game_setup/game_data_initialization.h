@@ -13,6 +13,7 @@ void initializeBoardWithSquares(square *board[]) {
       newSquare->col = col;
       newSquare->player = 0;
       newSquare->headquarters = 0;
+      newSquare->farm = 0;
       newSquare->head = NULL;
 
       board[squareCounter] = newSquare;

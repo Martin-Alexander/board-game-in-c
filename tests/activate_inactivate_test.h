@@ -4,8 +4,8 @@ void runActivateInactivateTest(square *board[]) {
   printPiecesInSquare(board[2]);
 
   printf("\n**Add 2 active pieces and 2 inactive pieces**\n");
-  addActivePiecesToSquare(board[2], 1, 2);
-  addInactivePiecesToSquare(board[2], 1, 2);
+  addActivePiecesToSquare(board[2], 2);
+  addInactivePiecesToSquare(board[2], 2);
   printPiecesInSquare(board[2]);
 
   printf("\n**Activate 2 pieces**\n");

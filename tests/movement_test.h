@@ -4,8 +4,8 @@ void runMovementTest(square *board[]) {
   printPiecesInSquare(board[3]);
 
   printf("\n**Add 2 active pieces and 2 inactive pieces**\n");
-  addActivePiecesToSquare(board[3], 1, 2);
-  addInactivePiecesToSquare(board[3], 1, 2);
+  addActivePiecesToSquare(board[3], 2);
+  addInactivePiecesToSquare(board[3], 2);
   printPiecesInSquare(board[3]);
 
   printf("\n**Try to move pieces to invalid square**\n");
@@ -16,7 +16,7 @@ void runMovementTest(square *board[]) {
   printPiecesInSquare(board[12]); 
   
   printf("\n**Try to move 2 pieces to valid square**\n");
-  movePieces(board[3], board[10], 3);
+  movePieces(board[3], board[10], 2);
   printf("From square: ");
   printPiecesInSquare(board[3]);
   printf("To square: ");

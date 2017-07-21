@@ -1,17 +1,21 @@
-// Move active pieces from one square to another provided the the following
+// Move active pieces from one square to another provided that the following
 // validations are met:
 // - Squares are ajacent
 // - Destination square is empty
+// - Departure square is not empty
+// - The number of pieces to be moved does not exceed the number of active 
+//   pieces in the square
 void movePieces(square *fromSquare, square *toSquare, int numberOfPiecesToBeMoved) {
 
   if (
-    squaresAreAjacent(fromSquare, toSquare) == 1 &&
-    squareIsEmpty(toSquare) == 1 &&
+    squaresAreAjacent(fromSquare, toSquare) &&
+    !squareIsEmpty(fromSquare) &&
+    squareIsEmpty(toSquare) &&
     numberOfPiecesToBeMoved <= numberOfActivePiecesInSquare(fromSquare)
   ) {
     // Validations have been met
 
     removeActivePiecesFromSquare(fromSquare, numberOfPiecesToBeMoved);
-    addInactivePiecesToSquare(toSquare, fromSquare->player, numberOfPiecesToBeMoved);
+    addInactivePiecesToSquare(toSquare, numberOfPiecesToBeMoved);
   }
 }

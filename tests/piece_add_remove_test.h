@@ -5,8 +5,8 @@ void runPieceAddRemoveTest(square *board[]) {
 
 
   printf("\n**Add 3 active pieces and 2 inactive pieces\n");
-  addInactivePiecesToSquare(board[0], 1, 2);
-  addActivePiecesToSquare(board[0], 1, 3);
+  addInactivePiecesToSquare(board[0], 2);
+  addActivePiecesToSquare(board[0], 3);
   printPiecesInSquare(board[0]);
 
   printf("\n**Remove 2 active piece**\n");
@@ -14,8 +14,8 @@ void runPieceAddRemoveTest(square *board[]) {
   printPiecesInSquare(board[0]);
 
   printf("\n**Add 1 active piece and 1 inactive piece**\n");
-  addActivePiecesToSquare(board[0], 1, 1);
-  addInactivePiecesToSquare(board[0], 1, 1);
+  addActivePiecesToSquare(board[0], 1);
+  addInactivePiecesToSquare(board[0], 1);
   printPiecesInSquare(board[0]);
 
   printf("\n**Remove 2 active pieces**\n");
@@ -27,8 +27,8 @@ void runPieceAddRemoveTest(square *board[]) {
   printPiecesInSquare(board[0]);
 
   printf("\n**Add 2 active pieces and 2 inactive pieces**\n");
-  addActivePiecesToSquare(board[1], 1, 2);
-  addInactivePiecesToSquare(board[1], 1, 2);
+  addActivePiecesToSquare(board[1], 2);
+  addInactivePiecesToSquare(board[1], 2);
   printPiecesInSquare(board[1]);
 
   printf("\n**Remove all pieces**\n");
