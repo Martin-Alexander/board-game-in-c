@@ -60,7 +60,7 @@ void printBoard() {
       printf("%s", lowerHalfOfSquare(board[lowerIndex]));
       lowerIndex++;
     }
-    printf("|\n");
+    printf("|\n----------------------------------------------------------------------|\n");
   }
 }
 
